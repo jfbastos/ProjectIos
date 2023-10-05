@@ -77,12 +77,13 @@ struct LogginView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination : RegistrationView(),
+                    destination : RegistrationView()
+                        .navigationBarBackButtonHidden(true),
                     label:{
                         HStack{
                             Text("Don't have an account?")
                                 .font(.system(size : 14))
-                            Text("Sing up")
+                            Text("Sign up")
                                 .font(.system(size:14, weight: .semibold))
                         }
                         

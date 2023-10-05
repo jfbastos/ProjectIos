@@ -16,6 +16,13 @@
 		50B4E2702ACAD38E002647F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50B4E25D2ACAD38E002647F0 /* Assets.xcassets */; };
 		50C6D2A32ACC140200E90D7F /* LogginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C6D2A22ACC140200E90D7F /* LogginView.swift */; };
 		50C6D2A52ACC141000E90D7F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C6D2A42ACC141000E90D7F /* RegistrationView.swift */; };
+		50D11B5B2ACEB65A003890AE /* ChannelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5A2ACEB65A003890AE /* ChannelsView.swift */; };
+		50D11B5D2ACEB669003890AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5C2ACEB669003890AE /* SettingsView.swift */; };
+		50D11B5F2ACEB674003890AE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5E2ACEB674003890AE /* ChatView.swift */; };
+		50D11B622ACEB69F003890AE /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B612ACEB69F003890AE /* ConversationView.swift */; };
+		50D11B642ACEB719003890AE /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B632ACEB719003890AE /* MainTabView.swift */; };
+		50D11B662ACEBCF0003890AE /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B652ACEBCF0003890AE /* SettingsHeaderView.swift */; };
+		50D11B682ACEBFDD003890AE /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B672ACEBFDD003890AE /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		50B4E26A2ACAD38E002647F0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		50C6D2A22ACC140200E90D7F /* LogginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginView.swift; sourceTree = "<group>"; };
 		50C6D2A42ACC141000E90D7F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		50D11B5A2ACEB65A003890AE /* ChannelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsView.swift; sourceTree = "<group>"; };
+		50D11B5C2ACEB669003890AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		50D11B5E2ACEB674003890AE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		50D11B612ACEB69F003890AE /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		50D11B632ACEB719003890AE /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		50D11B652ACEBCF0003890AE /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
+		50D11B672ACEBFDD003890AE /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +128,11 @@
 		50B4E27C2ACAD4FC002647F0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				50D11B602ACEB681003890AE /* Conversation */,
+				50D11B592ACEB647003890AE /* Chats */,
+				50D11B582ACEB63D003890AE /* Settings */,
+				50D11B572ACEB628003890AE /* Channels */,
+				50D11B542ACEB3F0003890AE /* Main */,
 				50C6D2A12ACC13DB00E90D7F /* Authentication */,
 			);
 			path = View;
@@ -133,6 +152,48 @@
 				50C6D2A42ACC141000E90D7F /* RegistrationView.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		50D11B542ACEB3F0003890AE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				50D11B632ACEB719003890AE /* MainTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		50D11B572ACEB628003890AE /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				50D11B5A2ACEB65A003890AE /* ChannelsView.swift */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		50D11B582ACEB63D003890AE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				50D11B5C2ACEB669003890AE /* SettingsView.swift */,
+				50D11B652ACEBCF0003890AE /* SettingsHeaderView.swift */,
+				50D11B672ACEBFDD003890AE /* SettingsCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		50D11B592ACEB647003890AE /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				50D11B5E2ACEB674003890AE /* ChatView.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		50D11B602ACEB681003890AE /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				50D11B612ACEB69F003890AE /* ConversationView.swift */,
+			);
+			path = Conversation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,10 +295,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				50B4E26D2ACAD38E002647F0 /* ContentView.swift in Sources */,
+				50D11B5D2ACEB669003890AE /* SettingsView.swift in Sources */,
+				50D11B682ACEBFDD003890AE /* SettingsCell.swift in Sources */,
+				50D11B5B2ACEB65A003890AE /* ChannelsView.swift in Sources */,
+				50D11B662ACEBCF0003890AE /* SettingsHeaderView.swift in Sources */,
 				50B4E26B2ACAD38E002647F0 /* ProjectIosApp.swift in Sources */,
+				50D11B5F2ACEB674003890AE /* ChatView.swift in Sources */,
 				50C6D2A32ACC140200E90D7F /* LogginView.swift in Sources */,
 				50C6D2A52ACC141000E90D7F /* RegistrationView.swift in Sources */,
 				501E59682ACC2EEF00D290CA /* CustomTextField.swift in Sources */,
+				50D11B622ACEB69F003890AE /* ConversationView.swift in Sources */,
+				50D11B642ACEB719003890AE /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

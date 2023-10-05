@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsHeader: View {
     var body: some View {
         HStack() {
-            Image(systemName: "person")
+            Image("Android_robot.svg")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 64, height: 64)
@@ -20,6 +20,7 @@ struct SettingsHeader: View {
             VStack(alignment : .leading, spacing : 4){
                 Text("Jhonny Doe")
                     .font(.system(size : 18))
+                    .foregroundColor(.black)
                 
                 Text("Avaliable")
                     .foregroundColor(.gray)

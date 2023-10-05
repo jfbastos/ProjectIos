@@ -12,10 +12,12 @@ struct SettingsView: View {
         ZStack{
             Color(.systemGroupedBackground).ignoresSafeArea()
             VStack(spacing : 32){
-                SettingsHeader()
+                NavigationLink(destination: EditProfileView(), label: {SettingsHeader()})
+                
+                
                 VStack(spacing : 1) {
-                    ForEach((0...2), id: \.self){ _ in
-                        SettingsCell()
+                    ForEach(SettingsCellViewModel.allCases, id: \.self){ viewModel in
+                        SettingsCell(viewModel : viewModel)
                     }
                 }
                 

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct EditProfileView: View {
-    @State private var fullname = ""
+    @State private var fullname = "Jhonny Doe"
+    
     var body: some View {
         ZStack{
             Color(.systemGroupedBackground).ignoresSafeArea()
-            VStack {
+            VStack(alignment : .leading, spacing : 32) {
                 VStack{
                     HStack {
                         VStack{
@@ -26,6 +27,7 @@ struct EditProfileView: View {
                                 Text("Edit")
                             })
                         }
+                        .padding(.top)
                         Text("Enter your name or change your profile photo")
                             .font(.system(size: 16))
                             .foregroundColor(.gray)
@@ -38,14 +40,26 @@ struct EditProfileView: View {
                     TextField("", text: $fullname)
                         .padding(8)
                 }
+                .padding()
                 .background(.white)
                 
-                VStack{
-                    HStack{
-                        Text("At the movies")
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
-                    }
+                VStack(alignment : .leading){
+                    Text("Status")
+                        .padding()
+                        .foregroundColor(.gray)
+                    
+                    NavigationLink(destination: Text("Edit Status"), label: {
+                        HStack{
+                            Text("At the movies")
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                        .padding()
+                        .background(Color.white)
+                    })
                 }
                 Spacer()
             }

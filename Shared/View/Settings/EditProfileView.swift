@@ -9,6 +9,9 @@ import SwiftUI
 
 struct EditProfileView: View {
     @State private var fullname = "Jhonny Doe"
+    @State private var showImagePicker = false
+    @State private var selectedImage : UIImage?
+    @State private var profileImage : Image?
     
     var body: some View {
         ZStack{
@@ -17,15 +20,28 @@ struct EditProfileView: View {
                 VStack{
                     HStack {
                         VStack{
-                            Image("Android_robot.svg")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 64, height: 64)
-                                .clipShape(Circle())
+                            if let profileImage = profileImage {
+                                profileImage
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 64, height: 64)
+                                    .clipShape(Circle())
+                            } else {
+                                Image(systemName: "person")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 64, height: 64)
+                                    .clipShape(Circle())
+                            }
                             
-                            Button(action: {}, label: {
+                            Button(action: {
+                                showImagePicker.toggle()
+                            }, label: {
                                 Text("Edit")
                             })
+                            .fullScreenCover(isPresented: $showImagePicker, onDismiss: loadImage) {
+                                ImagePicker(image: $selectedImage)
+                            }
                         }
                         .padding(.top)
                         Text("Enter your name or change your profile photo")
@@ -48,7 +64,7 @@ struct EditProfileView: View {
                         .padding()
                         .foregroundColor(.gray)
                     
-                    NavigationLink(destination: Text("Edit Status"), label: {
+                    NavigationLink(destination: StatusSelectorView(), label: {
                         HStack{
                             Text("At the movies")
                             
@@ -66,6 +82,11 @@ struct EditProfileView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Edit Profile")
+    }
+    
+    func loadImage(){
+        guard let selectedImage = selectedImage else {return}
+        profileImage = Image(uiImage: selectedImage)
     }
 }
 

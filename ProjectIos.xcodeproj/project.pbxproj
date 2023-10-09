@@ -13,6 +13,11 @@
 		5065AC202AD4487F00874C92 /* StatusSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065AC1F2AD4487F00874C92 /* StatusSelectorView.swift */; };
 		5065AC222AD44E1900874C92 /* StatusCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065AC212AD44E1900874C92 /* StatusCellViewModel.swift */; };
 		5065AC242AD4577100874C92 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065AC232AD4577100874C92 /* ImagePicker.swift */; };
+		5096199B2AD4815E00D4ABCF /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5096199A2AD4815E00D4ABCF /* ChatCell.swift */; };
+		5096199D2AD4851600D4ABCF /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5096199C2AD4851600D4ABCF /* NewMessageView.swift */; };
+		5096199F2AD4852000D4ABCF /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5096199E2AD4852000D4ABCF /* UserCell.swift */; };
+		509619A12AD4930000D4ABCF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509619A02AD4930000D4ABCF /* SearchBar.swift */; };
+		509619A32AD498CE00D4ABCF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509619A22AD498CE00D4ABCF /* Extensions.swift */; };
 		50B4E26B2ACAD38E002647F0 /* ProjectIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B4E25B2ACAD38D002647F0 /* ProjectIosApp.swift */; };
 		50B4E26C2ACAD38E002647F0 /* ProjectIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B4E25B2ACAD38D002647F0 /* ProjectIosApp.swift */; };
 		50B4E26D2ACAD38E002647F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B4E25C2ACAD38D002647F0 /* ContentView.swift */; };
@@ -37,6 +42,11 @@
 		5065AC1F2AD4487F00874C92 /* StatusSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSelectorView.swift; sourceTree = "<group>"; };
 		5065AC212AD44E1900874C92 /* StatusCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellViewModel.swift; sourceTree = "<group>"; };
 		5065AC232AD4577100874C92 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		5096199A2AD4815E00D4ABCF /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		5096199C2AD4851600D4ABCF /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
+		5096199E2AD4852000D4ABCF /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		509619A02AD4930000D4ABCF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		509619A22AD498CE00D4ABCF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		50B4E25B2ACAD38D002647F0 /* ProjectIosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectIosApp.swift; sourceTree = "<group>"; };
 		50B4E25C2ACAD38D002647F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		50B4E25D2ACAD38E002647F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +128,8 @@
 			children = (
 				501E59672ACC2EEF00D290CA /* CustomTextField.swift */,
 				5065AC232AD4577100874C92 /* ImagePicker.swift */,
+				509619A02AD4930000D4ABCF /* SearchBar.swift */,
+				509619A22AD498CE00D4ABCF /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -207,6 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				50D11B612ACEB69F003890AE /* ConversationView.swift */,
+				5096199A2AD4815E00D4ABCF /* ChatCell.swift */,
+				5096199C2AD4851600D4ABCF /* NewMessageView.swift */,
+				5096199E2AD4852000D4ABCF /* UserCell.swift */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -311,15 +326,20 @@
 			files = (
 				503112052ACEE96100292E77 /* EditProfileView.swift in Sources */,
 				5065AC202AD4487F00874C92 /* StatusSelectorView.swift in Sources */,
+				5096199D2AD4851600D4ABCF /* NewMessageView.swift in Sources */,
 				50B4E26D2ACAD38E002647F0 /* ContentView.swift in Sources */,
 				5065AC242AD4577100874C92 /* ImagePicker.swift in Sources */,
 				50D11B5D2ACEB669003890AE /* SettingsView.swift in Sources */,
 				5065AC222AD44E1900874C92 /* StatusCellViewModel.swift in Sources */,
 				50D11B682ACEBFDD003890AE /* SettingsCell.swift in Sources */,
+				5096199F2AD4852000D4ABCF /* UserCell.swift in Sources */,
+				509619A32AD498CE00D4ABCF /* Extensions.swift in Sources */,
 				503112032ACEDC6100292E77 /* SettingCellViewModel.swift in Sources */,
 				50D11B5B2ACEB65A003890AE /* ChannelsView.swift in Sources */,
 				50D11B662ACEBCF0003890AE /* SettingsHeaderView.swift in Sources */,
 				50B4E26B2ACAD38E002647F0 /* ProjectIosApp.swift in Sources */,
+				5096199B2AD4815E00D4ABCF /* ChatCell.swift in Sources */,
+				509619A12AD4930000D4ABCF /* SearchBar.swift in Sources */,
 				50D11B5F2ACEB674003890AE /* ChatView.swift in Sources */,
 				50C6D2A32ACC140200E90D7F /* LogginView.swift in Sources */,
 				50C6D2A52ACC141000E90D7F /* RegistrationView.swift in Sources */,

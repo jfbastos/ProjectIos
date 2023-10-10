@@ -24,6 +24,7 @@ struct ChatCell: View {
                     Text("What's up bitted apple dude")
                         .font(.system(size: 15))
                 }
+                .foregroundColor(.black)
                 
                 Spacer()
             }.padding(.horizontal)

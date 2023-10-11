@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject var viewModel : AuthViewModel
+    
     var body: some View {
         ZStack{
             Color(.systemGroupedBackground).ignoresSafeArea()
@@ -22,7 +24,7 @@ struct SettingsView: View {
                 }
                 
                 Button(action: {
-                    
+                    viewModel.signout()
                 }, label: {
                     Text("Log out")
                         .foregroundColor(.red)

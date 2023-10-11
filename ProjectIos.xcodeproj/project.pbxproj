@@ -26,6 +26,8 @@
 		50B4E2702ACAD38E002647F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50B4E25D2ACAD38E002647F0 /* Assets.xcassets */; };
 		50C6D2A32ACC140200E90D7F /* LogginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C6D2A22ACC140200E90D7F /* LogginView.swift */; };
 		50C6D2A52ACC141000E90D7F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C6D2A42ACC141000E90D7F /* RegistrationView.swift */; };
+		50CB31ED2AD6DE7700C395BA /* ProfilePhotoSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB31EC2AD6DE7700C395BA /* ProfilePhotoSelect.swift */; };
+		50CB31EF2AD6F49700C395BA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB31EE2AD6F49700C395BA /* ImageUploader.swift */; };
 		50D11B5B2ACEB65A003890AE /* ChannelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5A2ACEB65A003890AE /* ChannelsView.swift */; };
 		50D11B5D2ACEB669003890AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5C2ACEB669003890AE /* SettingsView.swift */; };
 		50D11B5F2ACEB674003890AE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5E2ACEB674003890AE /* ChatView.swift */; };
@@ -66,6 +68,8 @@
 		50B4E26A2ACAD38E002647F0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		50C6D2A22ACC140200E90D7F /* LogginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginView.swift; sourceTree = "<group>"; };
 		50C6D2A42ACC141000E90D7F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		50CB31EC2AD6DE7700C395BA /* ProfilePhotoSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelect.swift; sourceTree = "<group>"; };
+		50CB31EE2AD6F49700C395BA /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		50D11B5A2ACEB65A003890AE /* ChannelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsView.swift; sourceTree = "<group>"; };
 		50D11B5C2ACEB669003890AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		50D11B5E2ACEB674003890AE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		50B4E27A2ACAD4F2002647F0 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				50CB31EE2AD6F49700C395BA /* ImageUploader.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			children = (
 				50C6D2A22ACC140200E90D7F /* LogginView.swift */,
 				50C6D2A42ACC141000E90D7F /* RegistrationView.swift */,
+				50CB31EC2AD6DE7700C395BA /* ProfilePhotoSelect.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 				50F318FB2AD55AA40051D4E5 /* MessageView.swift in Sources */,
 				50D11B5B2ACEB65A003890AE /* ChannelsView.swift in Sources */,
 				50D11B662ACEBCF0003890AE /* SettingsHeaderView.swift in Sources */,
+				50CB31EF2AD6F49700C395BA /* ImageUploader.swift in Sources */,
 				50B4E26B2ACAD38E002647F0 /* ProjectIosApp.swift in Sources */,
 				5096199B2AD4815E00D4ABCF /* ChatCell.swift in Sources */,
 				509619A12AD4930000D4ABCF /* SearchBar.swift in Sources */,
@@ -390,6 +397,7 @@
 				50F299562AD5F39B0057E7C4 /* AuthViewModel.swift in Sources */,
 				501E59682ACC2EEF00D290CA /* CustomTextField.swift in Sources */,
 				50D11B622ACEB69F003890AE /* ConversationView.swift in Sources */,
+				50CB31ED2AD6DE7700C395BA /* ProfilePhotoSelect.swift in Sources */,
 				50D11B642ACEB719003890AE /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

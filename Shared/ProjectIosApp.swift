@@ -17,7 +17,7 @@ struct ProjectIosApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LogginView()
+           ContentView().environmentObject(AuthViewModel())
         }
     }
 }

@@ -12,6 +12,8 @@ struct NewMessageView: View {
     @Environment(\.presentationMode) var mode
     @State private var searchText = ""
     @State private var isEditing = false
+    @Binding var user: User?
+    @ObservedObject var viewModel = NewMessageViewModel()
     
     var body: some View {
         ScrollView {
@@ -22,21 +24,16 @@ struct NewMessageView: View {
                 .padding()
             
             VStack(alignment : .leading){
-                ForEach((0...10), id : \.self) { _ in
+                ForEach(viewModel.users) { user in
                     Button(action: {
                         showChatView.toggle()
+                        self.user = user
                         mode.wrappedValue.dismiss()
                     }, label: {
-                        UserCell()
+                        UserCell(user : user)
                     })
                 }
             }
         }
-    }
-}
-
-struct NewMessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewMessageView(showChatView: .constant(true))
     }
 }

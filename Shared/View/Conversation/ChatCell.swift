@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChatCell: View {
+    let viewModel: MessageViewModel
+    
     var body: some View {
         VStack {
             HStack{
@@ -21,7 +23,7 @@ struct ChatCell: View {
                     Text("Android")
                         .font(.system(size : 14, weight: .semibold))
                     
-                    Text("What's up bitted apple dude")
+                    Text(viewModel.message.text)
                         .font(.system(size: 15))
                 }
                 .foregroundColor(.black)
@@ -35,8 +37,3 @@ struct ChatCell: View {
     }
 }
 
-struct ChatCell_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatCell()
-    }
-}

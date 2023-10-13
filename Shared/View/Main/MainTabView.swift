@@ -12,32 +12,35 @@ struct MainTabView: View {
     private let chatsViewTag = 0
     private let channelsViewTag = 1
     private let settingsViewTag = 2
+    @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
-        NavigationView{
-            TabView(selection: $selectedIndex){
-                ConversationView()
-                    .onTapGesture {
-                        selectedIndex = chatsViewTag
-                    }
-                    .tabItem{ Image(systemName : "bubble.left")}
-                    .tag(chatsViewTag)
+        if let user = viewModel.currentUser{
+            NavigationView{
+                TabView(selection: $selectedIndex){
+                    ConversationView()
+                        .onTapGesture {
+                            selectedIndex = chatsViewTag
+                        }
+                        .tabItem{ Image(systemName : "bubble.left")}
+                        .tag(chatsViewTag)
+                        
+                    ChannelsView()
+                        .onTapGesture {
+                            selectedIndex = channelsViewTag
+                        }
+                        .tabItem{ Image(systemName : "bubble.left.and.bubble.right")}
+                        .tag(channelsViewTag)
                     
-                ChannelsView()
-                    .onTapGesture {
-                        selectedIndex = channelsViewTag
-                    }
-                    .tabItem{ Image(systemName : "bubble.left.and.bubble.right")}
-                    .tag(channelsViewTag)
-                
-                SettingsView()
-                    .onTapGesture {
-                        selectedIndex = settingsViewTag
-                    }
-                    .tabItem{ Image(systemName : "gear")}
-                    .tag(settingsViewTag)
+                    SettingsView(user : user)
+                        .onTapGesture {
+                            selectedIndex = settingsViewTag
+                        }
+                        .tabItem{ Image(systemName : "gear")}
+                        .tag(settingsViewTag)
+                }
+                .navigationTitle(tabTitle)
             }
-            .navigationTitle(tabTitle)
         }
     }
     

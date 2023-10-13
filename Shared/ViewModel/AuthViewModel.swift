@@ -13,10 +13,15 @@ class AuthViewModel: NSObject, ObservableObject{
     @Published var didAuthenticateUser = false
     @Published var userSession : FirebaseAuth.User?
     private var tempCurrentUser : FirebaseAuth.User?
+    @Published var currentUser: User?
+    
+    static let shared = AuthViewModel()
     
     override init(){
+        super.init()
         userSession = Auth.auth().currentUser
-        print("User logged : \(String(describing: Auth.auth().currentUser?.displayName))")
+        
+        fetchUser()
     }
     
     func login(withEmail email: String, password: String){
@@ -28,7 +33,7 @@ class AuthViewModel: NSObject, ObservableObject{
             
             guard let user = result?.user else {return}
             self.userSession = user
-            
+            self.fetchUser()
         }
     }
     
@@ -45,7 +50,7 @@ class AuthViewModel: NSObject, ObservableObject{
                                         "username": username,
                                         "fullname": fullname]
             
-            Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+            COLLECTION_USERS.document(user.uid).setData(data) { _ in
                 self.tempCurrentUser = user
                 self.didAuthenticateUser = true
             }
@@ -55,8 +60,8 @@ class AuthViewModel: NSObject, ObservableObject{
     func uploadProfileImage(_ image: UIImage){
         guard let uid = tempCurrentUser?.uid else { return }
         ImageUploader.uploadImage(image: image) { imageUrl in
-            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl" : imageUrl]){ _ in
-                
+            COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]){ _ in
+                self.userSession = self.tempCurrentUser
             }
         }
     }
@@ -64,5 +69,13 @@ class AuthViewModel: NSObject, ObservableObject{
     func signout(){
         self.userSession = nil
         try? Auth.auth().signOut()
+    }
+    
+    func fetchUser(){
+        guard let uid = userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).getDocument{ snapshot, _ in           
+            guard let user = try? snapshot?.data(as: User.self) else {return}
+            self.currentUser = user
+        }
     }
 }

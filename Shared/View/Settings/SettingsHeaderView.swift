@@ -29,7 +29,7 @@ struct SettingsHeader: View {
                     .font(.system(size : 18))
                     .foregroundColor(.black)
                 
-                Text("Avaliable")
+                Text(user.status)
                     .foregroundColor(.gray)
                     .font(.system(size : 14))
             }

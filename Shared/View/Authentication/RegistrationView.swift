@@ -81,6 +81,10 @@ struct RegistrationView: View {
             .shadow(color: .gray, radius: 6, x: 0.0, y: 0.0)
             .padding(.horizontal, 16)
             
+            if viewModel.isLoggedIn {
+                NavigationLink(destination: MainTabView().navigationBarBackButtonHidden(true), label: {})
+            }
+            
             Spacer()
             
             Button(action: {mode.wrappedValue.dismiss()}, label: {
@@ -91,6 +95,7 @@ struct RegistrationView: View {
                         .font(.system(size:14, weight: .semibold))
                 }
             })
+            
         }
     }
 }

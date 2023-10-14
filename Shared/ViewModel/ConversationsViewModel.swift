@@ -17,16 +17,16 @@ class ConversationsViewModel: ObservableObject{
     func fetchRecentMessages(){
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
         
-        COLLECTION_MESSAGES
+        let query = COLLECTION_MESSAGES
             .document(uid)
-            .collection("recent-messages")
+            .collection("recent_messages")
             .order(by: "timestamp", descending: true)
-            .getDocuments{ snapshot, _ in
-                guard let documents = snapshot?.documents else {return}
-                
-                self.recentMessages = documents.compactMap({try? $0.data(as: Message.self)})
             
-            }
+        query.addSnapshotListener { snapshot, _ in
+            guard let documents = snapshot?.documents else {return}
+            
+            self.recentMessages = documents.compactMap({try? $0.data(as: Message.self)})
+        }
     }
     
 }

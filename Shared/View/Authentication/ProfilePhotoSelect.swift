@@ -11,11 +11,15 @@ struct ProfilePhotoSelect: View {
     @State private var imagePickerPresented = false
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
+    @State private var doLogin : Bool = true
     @EnvironmentObject var viewModel: AuthViewModel
 
     
     var body: some View {
         VStack{
+            
+            NavigationLink(destination: MainTabView().navigationBarBackButtonHidden(true), isActive: $viewModel.isLoggedIn ,label: {})
+            
             Button(action: {imagePickerPresented.toggle()}, label:{
                 if let profileImage = profileImage{
                     profileImage

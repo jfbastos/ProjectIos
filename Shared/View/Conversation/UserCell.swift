@@ -26,7 +26,7 @@ struct UserCell: View {
                     Text(user.username)
                         .font(.system(size : 14, weight: .semibold))
                     
-                    Text("Creating stuff to descontinue after")
+                    Text(user.status)
                         .font(.system(size: 15))
                 }
                 .foregroundColor(.black)

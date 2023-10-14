@@ -7,20 +7,20 @@
 
 import Firebase
 import UIKit
-import AVFoundation
 
 class AuthViewModel: NSObject, ObservableObject{
     @Published var didAuthenticateUser = false
     @Published var userSession : FirebaseAuth.User?
     private var tempCurrentUser : FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var isLoggedIn = false
+    @Published var loginErrorOcurred = false
     
     static let shared = AuthViewModel()
     
     override init(){
         super.init()
         userSession = Auth.auth().currentUser
-        
         fetchUser()
     }
     
@@ -28,6 +28,7 @@ class AuthViewModel: NSObject, ObservableObject{
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Firebase login callback error : \(error.localizedDescription)")
+                self.loginErrorOcurred = true
                 return
             }
             
@@ -48,7 +49,8 @@ class AuthViewModel: NSObject, ObservableObject{
                     
             let data: [String : Any] = ["email" : email,
                                         "username": username,
-                                        "fullname": fullname]
+                                        "fullname": fullname,
+                                        "status": "Available"]
             
             COLLECTION_USERS.document(user.uid).setData(data) { _ in
                 self.tempCurrentUser = user
@@ -62,7 +64,24 @@ class AuthViewModel: NSObject, ObservableObject{
         ImageUploader.uploadImage(image: image) { imageUrl in
             COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]){ _ in
                 self.userSession = self.tempCurrentUser
+                self.isLoggedIn = true
             }
+        }
+    }
+    
+    func updateProfileImage(_ image: UIImage){
+        guard let uid = userSession?.uid else { return }
+        ImageUploader.uploadImage(image: image) { imageUrl in
+            COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]){ _ in
+               
+            }
+        }
+    }
+    
+    func updateStatus(status : String){
+        guard let uid = userSession?.uid else {return}
+        COLLECTION_USERS.document(uid).updateData(["status" : status]){ _ in
+           
         }
     }
     
@@ -72,9 +91,12 @@ class AuthViewModel: NSObject, ObservableObject{
     }
     
     func fetchUser(){
-        guard let uid = userSession?.uid else { return }
-        COLLECTION_USERS.document(uid).getDocument{ snapshot, _ in           
+        self.userSession = Auth.auth().currentUser
+        guard let uid = self.userSession?.uid else {return}
+        COLLECTION_USERS.document(uid).getDocument{ snapshot, _ in
             guard let user = try? snapshot?.data(as: User.self) else {return}
+            self.isLoggedIn = true
+            self.loginErrorOcurred = false
             self.currentUser = user
         }
     }

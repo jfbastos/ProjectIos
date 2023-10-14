@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct EditProfileView: View {
-    @State private var fullname = "Jhonny Doe"
+    @State private var fullname = ""
     @State private var showImagePicker = false
+    @State private var showStatusPicker = false
     @State private var selectedImage : UIImage?
     @State private var profileImage : Image?
-    
+    @State private var userStatus : String?
+    @EnvironmentObject var viewModel : AuthViewModel
+        
     var body: some View {
         ZStack{
             Color(.systemGroupedBackground).ignoresSafeArea()
@@ -27,7 +31,7 @@ struct EditProfileView: View {
                                     .frame(width: 64, height: 64)
                                     .clipShape(Circle())
                             } else {
-                                Image(systemName: "person")
+                                KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? "") )
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 64, height: 64)
@@ -53,7 +57,7 @@ struct EditProfileView: View {
                     Divider()
                         .padding(.horizontal)
                     
-                    TextField("", text: $fullname)
+                    TextField(viewModel.currentUser?.fullname ?? "", text: $fullname)
                         .padding(8)
                 }
                 .padding()
@@ -64,29 +68,52 @@ struct EditProfileView: View {
                         .padding()
                         .foregroundColor(.gray)
                     
-                    NavigationLink(destination: StatusSelectorView(), label: {
-                        HStack{
-                            Text("At the movies")
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
+                    Button(action: {
+                        showStatusPicker.toggle()
+                    }, label: {
+                        if let status = userStatus {
+                            HStack{
+                                Text(status)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.gray)
+                            }
+                            .padding()
+                            .background(Color.white)
+                        }else{
+                            HStack{
+                                Text(viewModel.currentUser?.status ?? "Available")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.gray)
+                            }
+                            .padding()
+                            .background(Color.white)
                         }
-                        .padding()
-                        .background(Color.white)
                     })
+                        .fullScreenCover(isPresented: $showStatusPicker, onDismiss: updateStatus){
+                            StatusSelectorView(currentStatus: $userStatus)
+                        }
                 }
                 Spacer()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Edit Profile")
+        .onAppear{
+            viewModel.fetchUser()
+        }
     }
     
     func loadImage(){
         guard let selectedImage = selectedImage else {return}
+        viewModel.updateProfileImage(selectedImage)
         profileImage = Image(uiImage: selectedImage)
+    }
+    
+    func updateStatus(){
+        guard let userStatus = userStatus else {return}
+        viewModel.updateStatus(status: userStatus)
     }
 }
 

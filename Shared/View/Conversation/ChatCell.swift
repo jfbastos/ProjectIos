@@ -6,34 +6,50 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ChatCell: View {
-    let viewModel: MessageViewModel
+    @ObservedObject var viewModel: ChatCellViewModel
+    @State var isChatSelected : Bool = false
     
     var body: some View {
-        VStack {
-            HStack{
-                Image("Android_robot.svg")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 48, height: 48)
-                    .clipShape(Circle())
-                
-                VStack(alignment: .leading, spacing: 4){
-                    Text("Android")
-                        .font(.system(size : 14, weight: .semibold))
+        if let user = viewModel.message.user {
+            Button(action: {
+                isChatSelected.toggle()
+            }, label: {
+                VStack {
+                    HStack {
+                        KFImage(viewModel.chatProfilePartnetUrl)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 48, height: 48)
+                            .clipShape(Circle())
+                        
+                        // message info
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(viewModel.fullname)
+                                .font(.system(size: 14, weight: .semibold))
+                            
+                            Text(viewModel.message.text)
+                                .font(.system(size: 15))
+                        }.foregroundColor(.black)
+                        
+                        Spacer()
+                        
+                    }
+                    .padding(.horizontal)
                     
-                    Text(viewModel.message.text)
-                        .font(.system(size: 15))
+                    Divider()
                 }
-                .foregroundColor(.black)
-                
-                Spacer()
-            }.padding(.horizontal)
+                .padding(.top)
+            })
             
-            Divider()
+            NavigationLink(destination: ChatView(user: user), isActive: $isChatSelected, label: {})
+//
+//            NavigationLink(destination: ChatView(user: user)) {
+//
+//            }.navigationViewStyle(StackNavigationViewStyle())
         }
-        .padding(.top)
     }
 }
 

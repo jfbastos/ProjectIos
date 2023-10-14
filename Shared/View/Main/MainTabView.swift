@@ -10,44 +10,45 @@ import SwiftUI
 struct MainTabView: View {
     @State private var selectedIndex = 0
     private let chatsViewTag = 0
-    private let channelsViewTag = 1
+    private let contactsViewTag = 1
     private let settingsViewTag = 2
     @EnvironmentObject var viewModel : AuthViewModel
     
     var body: some View {
-        if let user = viewModel.currentUser{
-            NavigationView{
-                TabView(selection: $selectedIndex){
-                    ConversationView()
-                        .onTapGesture {
-                            selectedIndex = chatsViewTag
-                        }
-                        .tabItem{ Image(systemName : "bubble.left")}
-                        .tag(chatsViewTag)
-                        
-                    ChannelsView()
-                        .onTapGesture {
-                            selectedIndex = channelsViewTag
-                        }
-                        .tabItem{ Image(systemName : "bubble.left.and.bubble.right")}
-                        .tag(channelsViewTag)
-                    
-                    SettingsView(user : user)
-                        .onTapGesture {
-                            selectedIndex = settingsViewTag
-                        }
-                        .tabItem{ Image(systemName : "gear")}
-                        .tag(settingsViewTag)
-                }
-                .navigationTitle(tabTitle)
+        NavigationView{
+            TabView(selection: $selectedIndex){
+                ConversationView()
+                    .onTapGesture {
+                        selectedIndex = chatsViewTag
+                    }
+                    .tabItem{ Image(systemName : "bubble.left")}
+                    .tag(chatsViewTag)
+                
+                NewMessageView()
+                    .onTapGesture{
+                        selectedIndex = contactsViewTag
+                    }
+                    .tabItem{ Image(systemName: "person.3.fill")}
+                    .tag(contactsViewTag)
+                SettingsView()
+                    .onTapGesture {
+                        selectedIndex = settingsViewTag
+                    }
+                    .tabItem{ Image(systemName : "gear")}
+                    .tag(settingsViewTag)
             }
+            .navigationTitle(tabTitle)
+        }
+        .navigationBarHidden(true)
+        .onAppear{
+            viewModel.fetchUser()
         }
     }
     
     var tabTitle : String{
         switch selectedIndex{
         case chatsViewTag: return "Chats"
-        case channelsViewTag: return "Channels"
+        case contactsViewTag: return "Contacts"
         case settingsViewTag: return "Settings"
         default: return ""
         }

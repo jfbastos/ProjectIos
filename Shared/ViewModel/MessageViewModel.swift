@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct MessageViewModel {
+class MessageViewModel : ObservableObject{
+    
     let message: Message
+    
+    init(_ message: Message){
+        self.message = message
+    }
     
     var currentUid: String{
         return AuthViewModel.shared.userSession?.uid ?? ""
@@ -21,4 +26,6 @@ struct MessageViewModel {
     var profileImageUrl: URL?{
         return URL(string: message.user?.profileImageUrl ?? "")
     }
+    
+    
 }

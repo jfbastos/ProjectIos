@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SettingsView: View {
-    private let user: User
-    
-    init(user : User){
-        self.user = user
-    }
+//    private let user: User
+//
+//    init(user : User){
+//        self.user = user
+//    }
     
     @EnvironmentObject var viewModel : AuthViewModel
     
@@ -20,14 +20,12 @@ struct SettingsView: View {
         ZStack{
             Color(.systemGroupedBackground).ignoresSafeArea()
             VStack(spacing : 32){
-                NavigationLink(destination: EditProfileView(), label: {SettingsHeader(user : user)})
-                
-                
-                VStack(spacing : 1) {
-                    ForEach(SettingsCellViewModel.allCases, id: \.self){ viewModel in
-                        SettingsCell(viewModel : viewModel)
+
+                if let user = viewModel.currentUser{
+                    NavigationLink(destination: EditProfileView()){
+                        SettingsHeader(user : user)
                     }
-                }
+                }                
                 
                 Button(action: {
                     viewModel.signout()
@@ -41,6 +39,9 @@ struct SettingsView: View {
                 
                 Spacer()
             }
+        }
+        .onAppear{
+            viewModel.fetchUser()
         }
         
     }

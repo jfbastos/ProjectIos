@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct LogginView: View {
     @State private var email = ""
     @State private var password = ""
+    @State private var showToast = false
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         NavigationView {
+                                               
             VStack {
                 VStack(alignment: .leading, spacing : 12){
                     HStack {Spacer()}
@@ -75,6 +78,18 @@ struct LogginView: View {
                 })
                 .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
                 
+                HStack{
+                    if viewModel.loginErrorOcurred {
+                        Text("User or password invalid")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.red)
+                    }
+                }
+                
+                if viewModel.isLoggedIn {
+                    NavigationLink(destination: MainTabView().navigationBarBackButtonHidden(true), label: {})
+                }
+                                            
                 Spacer()
                 
                 NavigationLink(
@@ -92,12 +107,6 @@ struct LogginView: View {
             }
         }
         .padding(.top, -56)
-    }
-}
-
-struct LogginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogginView()
     }
 }
 

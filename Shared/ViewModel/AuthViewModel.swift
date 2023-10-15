@@ -15,8 +15,9 @@ class AuthViewModel: NSObject, ObservableObject{
     @Published var currentUser: User?
     @Published var isLoggedIn = false
     @Published var loginErrorOcurred = false
+    @Published var resetPasswordError : String?
     
-    static let shared = AuthViewModel()
+    static var shared : AuthViewModel = AuthViewModel()
     
     override init(){
         super.init()
@@ -85,8 +86,26 @@ class AuthViewModel: NSObject, ObservableObject{
         }
     }
     
+    func forgotPassword(email :String){
+        
+        Auth.auth().sendPasswordReset(withEmail: email){ error in
+            print("DEBUG: Reset email sended to \(email)")
+            if let error = error {
+                print("DEBUG: Firebase callback error : \(error.localizedDescription)")
+                self.resetPasswordError = error.localizedDescription
+                return
+            }
+            
+            self.resetPasswordError = nil
+        }
+    }
+    
     func signout(){
         self.userSession = nil
+        self.isLoggedIn = false
+        self.didAuthenticateUser = false
+        self.currentUser = nil
+        self.tempCurrentUser = nil
         try? Auth.auth().signOut()
     }
     

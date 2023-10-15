@@ -12,7 +12,6 @@ class ChatCellViewModel : ObservableObject{
     
     init(_ message: Message){
         self.message = message
-        fetchUser()
     }
     
     var chatPartnerId: String{
@@ -26,11 +25,5 @@ class ChatCellViewModel : ObservableObject{
     var fullname : String{
         guard let user = message.user else { return ""}
         return user.fullname
-    }
-    
-    func fetchUser(){
-        COLLECTION_USERS.document(chatPartnerId).getDocument{ snapshot, _ in
-            self.message.user = try? snapshot?.data(as: User.self)
-        }
     }
 }

@@ -17,7 +17,7 @@
 		50369BFA2AD82B8A00EB6155 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 50369BF92AD82B8A00EB6155 /* FirebaseFirestoreSwift */; };
 		50369BFC2AD82B8A00EB6155 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 50369BFB2AD82B8A00EB6155 /* FirebaseStorage */; };
 		50369BFF2AD8367B00EB6155 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 50369BFE2AD8367B00EB6155 /* Kingfisher */; };
-		50369C012AD8390300EB6155 /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50369C002AD8390300EB6155 /* NewMessageViewModel.swift */; };
+		50369C012AD8390300EB6155 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50369C002AD8390300EB6155 /* ContactsViewModel.swift */; };
 		50369C032AD84D6400EB6155 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50369C022AD84D6400EB6155 /* Constants.swift */; };
 		5065AC202AD4487F00874C92 /* StatusSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065AC1F2AD4487F00874C92 /* StatusSelectorView.swift */; };
 		5065AC222AD44E1900874C92 /* StatusCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065AC212AD44E1900874C92 /* StatusCellViewModel.swift */; };
@@ -40,14 +40,12 @@
 		50CB31EF2AD6F49700C395BA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB31EE2AD6F49700C395BA /* ImageUploader.swift */; };
 		50D11B5D2ACEB669003890AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5C2ACEB669003890AE /* SettingsView.swift */; };
 		50D11B5F2ACEB674003890AE /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B5E2ACEB674003890AE /* ChatView.swift */; };
-		50D11B622ACEB69F003890AE /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B612ACEB69F003890AE /* ConversationView.swift */; };
+		50D11B622ACEB69F003890AE /* ConversationHistoricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B612ACEB69F003890AE /* ConversationHistoricView.swift */; };
 		50D11B642ACEB719003890AE /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B632ACEB719003890AE /* MainTabView.swift */; };
 		50D11B662ACEBCF0003890AE /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D11B652ACEBCF0003890AE /* SettingsHeaderView.swift */; };
-		50E714782ADAE7D20046CD83 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 50E714772ADAE7D20046CD83 /* AlertToast */; };
 		50F299562AD5F39B0057E7C4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F299552AD5F39B0057E7C4 /* AuthViewModel.swift */; };
 		50F318F92AD558170051D4E5 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F318F82AD558170051D4E5 /* ChatBubble.swift */; };
 		50F318FB2AD55AA40051D4E5 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F318FA2AD55AA40051D4E5 /* MessageView.swift */; };
-		50F318FD2AD55F4D0051D4E5 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F318FC2AD55F4D0051D4E5 /* CustomInputView.swift */; };
 		50F318FF2AD5647A0051D4E5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F318FE2AD5647A0051D4E5 /* Message.swift */; };
 		50F319012AD564FC0051D4E5 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F319002AD564FC0051D4E5 /* ChatViewModel.swift */; };
 		50F319032AD56BF60051D4E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50F319022AD56BF60051D4E5 /* GoogleService-Info.plist */; };
@@ -59,7 +57,7 @@
 		5027DAA62AD9CB53006F1FE2 /* ConversationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewModel.swift; sourceTree = "<group>"; };
 		503112042ACEE96100292E77 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		50369BF12AD8275100EB6155 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		50369C002AD8390300EB6155 /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
+		50369C002AD8390300EB6155 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		50369C022AD84D6400EB6155 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5065AC1F2AD4487F00874C92 /* StatusSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSelectorView.swift; sourceTree = "<group>"; };
 		5065AC212AD44E1900874C92 /* StatusCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCellViewModel.swift; sourceTree = "<group>"; };
@@ -82,13 +80,12 @@
 		50CB31EE2AD6F49700C395BA /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		50D11B5C2ACEB669003890AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		50D11B5E2ACEB674003890AE /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		50D11B612ACEB69F003890AE /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		50D11B612ACEB69F003890AE /* ConversationHistoricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationHistoricView.swift; sourceTree = "<group>"; };
 		50D11B632ACEB719003890AE /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		50D11B652ACEBCF0003890AE /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		50F299552AD5F39B0057E7C4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		50F318F82AD558170051D4E5 /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		50F318FA2AD55AA40051D4E5 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		50F318FC2AD55F4D0051D4E5 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 		50F318FE2AD5647A0051D4E5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		50F319002AD564FC0051D4E5 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		50F319022AD56BF60051D4E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -102,7 +99,6 @@
 				50369BF62AD82B8A00EB6155 /* FirebaseAuth in Frameworks */,
 				50369BFC2AD82B8A00EB6155 /* FirebaseStorage in Frameworks */,
 				50369BF82AD82B8A00EB6155 /* FirebaseFirestore in Frameworks */,
-				50E714782ADAE7D20046CD83 /* AlertToast in Frameworks */,
 				50369BFA2AD82B8A00EB6155 /* FirebaseFirestoreSwift in Frameworks */,
 				50369BFF2AD8367B00EB6155 /* Kingfisher in Frameworks */,
 			);
@@ -186,7 +182,7 @@
 				5065AC212AD44E1900874C92 /* StatusCellViewModel.swift */,
 				50F319002AD564FC0051D4E5 /* ChatViewModel.swift */,
 				50F299552AD5F39B0057E7C4 /* AuthViewModel.swift */,
-				50369C002AD8390300EB6155 /* NewMessageViewModel.swift */,
+				50369C002AD8390300EB6155 /* ContactsViewModel.swift */,
 				5027DAA42AD9A6F2006F1FE2 /* MessageViewModel.swift */,
 				5027DAA62AD9CB53006F1FE2 /* ConversationsViewModel.swift */,
 				50C22B0B2ADAA5400082B948 /* ChatCellViewModel.swift */,
@@ -250,7 +246,6 @@
 				50D11B5E2ACEB674003890AE /* ChatView.swift */,
 				50F318F82AD558170051D4E5 /* ChatBubble.swift */,
 				50F318FA2AD55AA40051D4E5 /* MessageView.swift */,
-				50F318FC2AD55F4D0051D4E5 /* CustomInputView.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -258,7 +253,7 @@
 		50D11B602ACEB681003890AE /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
-				50D11B612ACEB69F003890AE /* ConversationView.swift */,
+				50D11B612ACEB69F003890AE /* ConversationHistoricView.swift */,
 				5096199A2AD4815E00D4ABCF /* ChatCell.swift */,
 				5096199C2AD4851600D4ABCF /* NewMessageView.swift */,
 				5096199E2AD4852000D4ABCF /* UserCell.swift */,
@@ -288,7 +283,6 @@
 				50369BF92AD82B8A00EB6155 /* FirebaseFirestoreSwift */,
 				50369BFB2AD82B8A00EB6155 /* FirebaseStorage */,
 				50369BFE2AD8367B00EB6155 /* Kingfisher */,
-				50E714772ADAE7D20046CD83 /* AlertToast */,
 			);
 			productName = "ProjectIos (iOS)";
 			productReference = 50B4E2622ACAD38E002647F0 /* ProjectIos.app */;
@@ -341,7 +335,6 @@
 			packageReferences = (
 				50369BF42AD82B8A00EB6155 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				50369BFD2AD8367B00EB6155 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				50E714762ADAE7D20046CD83 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 50B4E2632ACAD38E002647F0 /* Products */;
 			projectDirPath = "";
@@ -391,7 +384,7 @@
 				50F318FF2AD5647A0051D4E5 /* Message.swift in Sources */,
 				50F318F92AD558170051D4E5 /* ChatBubble.swift in Sources */,
 				509619A32AD498CE00D4ABCF /* Extensions.swift in Sources */,
-				50369C012AD8390300EB6155 /* NewMessageViewModel.swift in Sources */,
+				50369C012AD8390300EB6155 /* ContactsViewModel.swift in Sources */,
 				5027DAA72AD9CB53006F1FE2 /* ConversationsViewModel.swift in Sources */,
 				50F318FB2AD55AA40051D4E5 /* MessageView.swift in Sources */,
 				50D11B662ACEBCF0003890AE /* SettingsHeaderView.swift in Sources */,
@@ -400,14 +393,13 @@
 				5096199B2AD4815E00D4ABCF /* ChatCell.swift in Sources */,
 				509619A12AD4930000D4ABCF /* SearchBar.swift in Sources */,
 				50369C032AD84D6400EB6155 /* Constants.swift in Sources */,
-				50F318FD2AD55F4D0051D4E5 /* CustomInputView.swift in Sources */,
 				50D11B5F2ACEB674003890AE /* ChatView.swift in Sources */,
 				5027DAA52AD9A6F2006F1FE2 /* MessageViewModel.swift in Sources */,
 				50C6D2A32ACC140200E90D7F /* LogginView.swift in Sources */,
 				50C6D2A52ACC141000E90D7F /* RegistrationView.swift in Sources */,
 				50F299562AD5F39B0057E7C4 /* AuthViewModel.swift in Sources */,
 				501E59682ACC2EEF00D290CA /* CustomTextField.swift in Sources */,
-				50D11B622ACEB69F003890AE /* ConversationView.swift in Sources */,
+				50D11B622ACEB69F003890AE /* ConversationHistoricView.swift in Sources */,
 				50CB31ED2AD6DE7700C395BA /* ProfilePhotoSelect.swift in Sources */,
 				50C22B0C2ADAA5400082B948 /* ChatCellViewModel.swift in Sources */,
 				50D11B642ACEB719003890AE /* MainTabView.swift in Sources */,
@@ -697,14 +689,6 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		50E714762ADAE7D20046CD83 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/elai950/AlertToast.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -732,11 +716,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 50369BFD2AD8367B00EB6155 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		50E714772ADAE7D20046CD83 /* AlertToast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 50E714762ADAE7D20046CD83 /* XCRemoteSwiftPackageReference "AlertToast" */;
-			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

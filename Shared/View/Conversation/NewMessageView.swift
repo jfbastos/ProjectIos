@@ -12,7 +12,7 @@ struct NewMessageView: View {
     @State private var isUserSelected = false
     @State private var isEditing = false
     @State private var user : User?
-    @ObservedObject var viewModel = NewMessageViewModel()
+    @ObservedObject var viewModel = ContactsViewModel()
     
     var body: some View {
         VStack{

@@ -48,6 +48,4 @@ enum UserStatus : Int, CaseIterable{
             return "Urgent calls only"
         }
     }
-    
-    
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var messageText = ""
+    @State var messageText : String = ""
     @ObservedObject var viewModel: ChatViewModel
     private let user: User
     
@@ -26,16 +26,34 @@ struct ChatView: View {
                     }
                 }
             }
+            Rectangle()
+                .foregroundColor(Color(.separator))
+                .frame(width: UIScreen.main.bounds.width, height: 0.75)
             
-            CustomInputView(text: $messageText, action: sendMessage)
+            HStack{
+                TextField("Message...", text: $messageText)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .font(.body)
+                    .frame(minHeight: 30)
+                
+                Button(action: {
+                    Task{
+                        await viewModel.sendMessage(messageText)
+                        messageText = ""
+                    }
+                }, label:{
+                    Text("Send")
+                        .bold()
+                        .foregroundColor(.black)
+                })
+            }
+            .padding(.bottom, 8)
+            .padding(.horizontal)
+            //CustomInputView(text: $messageText, action: sendMessage)
+            
         }
         .navigationTitle(user.fullname)
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
-    }
-    
-    func sendMessage(){
-        viewModel.sendMessage(messageText)
-        messageText = ""
     }
 }

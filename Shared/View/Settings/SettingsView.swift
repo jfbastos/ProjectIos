@@ -29,6 +29,7 @@ struct SettingsView: View {
                 
                 Button(action: {
                     viewModel.signout()
+                    AuthViewModel.shared.userSession = nil
                 }, label: {
                     Text("Log out")
                         .foregroundColor(.red)

@@ -16,7 +16,7 @@ class ChatViewModel: ObservableObject{
         fetchMessages()
     }
     
-    func sendMessage(_ messageText: String){
+    func sendMessage(_ messageText: String) async{
         guard let currentUid = AuthViewModel.shared.userSession?.uid else {return}
         guard let chatPartnerId = user.id else {return}
         
@@ -34,11 +34,11 @@ class ChatViewModel: ObservableObject{
                                     "read": false,
                                     "timestamp": Timestamp(date: Date())]
         
-        currentUserRef.setData(data)
-        chatPartnerRef.document(messageId).setData(data)
+        try? await currentUserRef.setData(data)
+        try? await chatPartnerRef.document(messageId).setData(data)
         
-        recentCurrentRef.setData(data)
-        recentPartnerRef.setData(data)
+        try? await recentCurrentRef.setData(data)
+        try? await recentPartnerRef.setData(data)
     }
     
     func fetchMessages(){

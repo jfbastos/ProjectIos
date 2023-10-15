@@ -10,46 +10,40 @@ import Kingfisher
 
 struct ChatCell: View {
     @ObservedObject var viewModel: ChatCellViewModel
-    @State var isChatSelected : Bool = false
+    @State var user : User
     
     var body: some View {
-        if let user = viewModel.message.user {
-            Button(action: {
-                isChatSelected.toggle()
-            }, label: {
-                VStack {
-                    HStack {
-                        KFImage(viewModel.chatProfilePartnetUrl)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 48, height: 48)
-                            .clipShape(Circle())
-                        
-                        // message info
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(viewModel.fullname)
-                                .font(.system(size: 14, weight: .semibold))
-                            
-                            Text(viewModel.message.text)
-                                .font(.system(size: 15))
-                        }.foregroundColor(.black)
+        VStack {
+            HStack {
+                KFImage(viewModel.chatProfilePartnetUrl)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 48, height: 48)
+                    .clipShape(Circle())
+                
+                // message info
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(viewModel.fullname)
+                        .font(.system(size: 14, weight: .semibold))
+                    
+                    HStack(alignment: .bottom){
+                        Text(viewModel.message.text)
+                            .font(.system(size: 15))
                         
                         Spacer()
-                        
+                        Text(viewModel.message.timestamp.dateValue(), style: .time)
+                            .font(.system(size: 12))
                     }
-                    .padding(.horizontal)
-                    
-                    Divider()
-                }
-                .padding(.top)
-            })
+                }.foregroundColor(.black)
+                
+                Spacer()
+                
+            }
+            .padding(.horizontal)
             
-            NavigationLink(destination: ChatView(user: user), isActive: $isChatSelected, label: {})
-//
-//            NavigationLink(destination: ChatView(user: user)) {
-//
-//            }.navigationViewStyle(StackNavigationViewStyle())
+            Divider()
         }
+        .padding(.top)
     }
 }
 

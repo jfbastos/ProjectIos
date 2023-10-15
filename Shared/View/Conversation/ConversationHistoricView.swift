@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConversationView: View {
+struct ConversationHistoricView: View {
     @State private var showNewMessageView = false
     @State private var showChatView = false
     @State var selectedUser: User?
@@ -15,7 +15,6 @@ struct ConversationView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing){
-            
             if viewModel.recentMessages.count == 0{
                 ScrollView{
                     VStack{
@@ -27,19 +26,29 @@ struct ConversationView: View {
             }else{
                 ScrollView {
                     VStack(alignment: .leading) {
-                        ForEach(viewModel.recentMessages) { message in
-                            ChatCell(viewModel: ChatCellViewModel(message))
+                        ForEach(viewModel.recentMessages){ message in
+                            if let user = message.user{
+                                NavigationLink(
+                                    destination: ChatView(user: user),
+                                    label: {
+                                        ChatCell(viewModel: ChatCellViewModel(message), user: user)
+                                    })
+                            }
                         }
                     }
                 }
             }
         }
-        .onAppear{viewModel.fetchRecentMessages()}
+        .onAppear{
+            Task {
+                await viewModel.fetchRecentMessages()
+            }
+        }
     }
 }
 
 struct ConversationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConversationView()
+        ConversationHistoricView()
     }
 }
